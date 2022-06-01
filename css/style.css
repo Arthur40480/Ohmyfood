@@ -6,6 +6,10 @@
   --primary: #9356DC;
   --secondary: #FF79DA;
   --tertiary: #99E2D0;
+  --footer_color: #353535ff;
+  --grey_background: #f2f2f2;
+  --grey_shadow: #e7e7e7;
+  --blue_working: #deebff;
 }
 
 /*---------- Body ----------*/
@@ -27,12 +31,15 @@ form {
 	margin: auto;
 	padding: 20px 0 20px 0;
 	width: 100%;
-	background-color: #e7e7e7;	
+	box-shadow: inset 0 8px 8px -3px #c6c6c6;
+	background-color: var(--grey_shadow);	
 }
 
 .searchbar {
+	text-align: center;
 	border: none;
-	background-color: #e7e7e7;
+	width: 30%;
+	background-color: var(--grey_shadow);
 }
 
 .searchbar:focus {
@@ -44,36 +51,46 @@ form {
 	opacity: 1;	
 }
 
+/*---------- Main ----------*/
 /*---------- Welcom section ----------*/
 .welcom_section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: #f2f2f2;
+	margin-bottom: 50px;
+	background-color: var(--grey_background);
 	padding: 30px 0 50px 0;
 }
 
 .welcom_section h2{
 	margin: 0;
+  padding-bottom: 10px;
 	text-align: center;
 }
 
 .welcom_section p {
-	margin: 30px 55px 30px 55px;
+	margin: 0;
+  padding-bottom: 25px;
 	text-align: center;
 }
 
-.welcom_section button {
+.welcom_section a {
 	border: none;
 	border-radius: 30px;
-	padding: 20px;
+	padding: 18px 30px 18px 30px;
+	text-decoration: none;
 	color: #ffffff;
 	background-color: var(--primary);
 }
 
-/*---------- Main ----------*/
+/*---------- Working section ----------*/
+.working_section {
+  margin-bottom: 70px;
+}
 .working_section h2 {
-	margin-left: 20px;
+	margin: auto;
+  padding-bottom: 10px;
+	width: 90%;
 }
 
 .working_list {
@@ -86,12 +103,12 @@ form {
 	align-items: center;
 	position: relative;
 	margin: auto;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 	border-radius: 20px;
 	padding: 8px 0 8px 0;
-	box-shadow:0 5px 5px 5px #e7e7e7;
+	box-shadow:0 5px 5px 5px var(--grey_shadow);
 	width: 85%;
-	background-color: #f2f2f2;
+	background-color: var(--grey_background);
 }
 
 .working_number {
@@ -107,7 +124,7 @@ form {
 .working_list .fa-solid {
 	margin: 0 20px 0 30px;
 	text-decoration: none;
-	color: rgb(128, 128, 128)
+	color: #808080
 }
 
 .working_list p {
@@ -116,9 +133,118 @@ font-weight: 500;
 
 .working_list li:hover {
 	transition: 500ms;
-	background-color: #deebff;
+	background-color: var(--blue_working);
+}
+
+.working_list li:focus {
+	transition: 500ms;
+	background-color: var(--blue_working);
 }
 
 .working_list li:hover i.fa-solid {
 	color: var(--primary);
+}
+
+/*---------- Article restaurant ----------*/
+#restaurant {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0 60px 0;
+  width: 100%;
+  background-color: var(--grey_background);
+}
+
+#restaurant h2 {
+  margin: auto;
+  width: 90%;
+}
+
+#restaurant a {
+  text-decoration: none;
+}
+
+.cards {                  /*--- Cards des quatres restaurant ---*/
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  margin: 20px 20px 10px 20px;
+  border-radius: 30px;
+  height: 300px;
+  box-shadow:0 5px 5px 5px var(--grey_shadow);
+  background-color: #ffffff;
+}
+
+.link_img {
+  display: flex;
+  height: 70%;
+}
+
+.cards img {
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.cards h3 {
+  margin: 20px 0 0 15px;
+  color: #000000;
+}
+
+.cards p {
+  margin: 5px 0 0 15px;
+  color: #000000;
+}
+
+.new {                   /*--- Etiquette "Nouveau" ---*/
+  position: absolute;
+  right: 15px; top: 15px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  background-color: var(--grey_shadow);
+  color: #868484;
+  font-weight: 600;
+}
+
+.fa-heart {
+  position: absolute;
+  right: 30px; bottom: 40px;
+  font-size: 25px;
+}
+
+/*---------- Footer ----------*/
+footer {
+  background-color: var(--footer_color);
+  color: #ffffff;
+}
+
+footer h3 {
+  margin: 0;
+  padding: 30px 0 20px 36px;
+  font-size: 16px;
+  font-family: "Shrikhand";
+}
+
+footer a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+footer ul {
+  margin: 0;
+  padding-bottom: 30px;
+  list-style-type: none;
+}
+
+footer li {
+  padding-bottom: 10px;
+}
+
+.fa-utensils {
+  padding-right: 15px;
+}
+
+.fa-handshake-angle {
+  padding-right: 10px;
 }
