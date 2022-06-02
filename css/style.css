@@ -1,7 +1,7 @@
 /*---------- Polices ----------*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap');
 
-/*---------- Variables ----------*/
+/*---------- Variables ( Couleurs ) ----------*/
 :root {                               /*--- Root même comportement que html mais plus fort ---*/
   --primary: #9356DC;
   --secondary: #FF79DA;
