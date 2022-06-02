@@ -9,6 +9,7 @@
   --footer_color: #353535ff;
   --grey_background: #f2f2f2;
   --grey_shadow: #e7e7e7;
+  --dark_grey_shadow: #c6c6c6;
   --blue_working: #deebff;
 }
 
@@ -31,7 +32,7 @@ form {
 	margin: auto;
 	padding: 20px 0 20px 0;
 	width: 100%;
-	box-shadow: inset 0 8px 8px -3px #c6c6c6;
+	box-shadow: inset 0 8px 8px -3px var(--dark_grey_shadow);
 	background-color: var(--grey_shadow);	
 }
 
@@ -248,3 +249,124 @@ footer li {
 .fa-handshake-angle {
   padding-right: 10px;
 }
+
+/*---------- CSS Pour les 4 pages "menu" ----------*/
+.header_menu {
+  position: relative;
+}
+
+.header_menu i {
+  position: absolute;
+  top: 10px; left: 20px;
+  font-size: 25px;
+}
+
+.header_menu h1{
+  text-align: center;
+}
+
+.header_menu a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/*------- Main -> Header -> Photo d'illustration -------*/
+.img_menu {
+  object-fit: cover;
+  width: 100%;
+  min-height: 360px;
+}
+
+.main_menu header {
+  height: 300px;
+}
+
+.main_menu h3 {
+  padding-left: 20px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.main_menu h3::after {
+  content: ".";
+  display: block;
+  padding-top: 5px;
+  width: 45px;
+  border-bottom: 3px solid var(--tertiary);
+  font-size: 0;
+}
+
+/*---------- Article ----------*/
+.article_menu {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--grey_background);
+  border-radius: 80px 80px 0 0;
+  position: relative;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.article_menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.article_menu h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px 20px 20px;
+  font-family: 'Shrikhand';
+}
+
+.heart_menu {
+  position: static;
+  padding: 20px;
+}
+
+.article_menu li {
+  margin-bottom: 15px;
+  padding: 12px 0 15px 12px;
+  width: 90%;
+  border-radius: 18px;
+  box-shadow: 5px 5px 3px var(--dark_grey_shadow);
+  background-color: #ffffff;
+}
+
+.article_menu h4 {
+  margin: 0;
+  padding-bottom: 10px; 
+  font-size: 18px;
+}
+
+.article_menu p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0%;
+}
+
+.article_menu span {
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+.article_menu a {
+  display: block;
+  margin: auto;
+  margin-bottom: 70px;
+	border-radius: 30px;
+	padding: 15px 40px 15px 40px;
+  width: 30%;
+  text-align: center;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: var(--primary);
+}
+
+
+
