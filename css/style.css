@@ -21,25 +21,25 @@ body {
 
 	/*---------- Header mobile ----------*/
 header h1 {
-	text-align: center;
 	width: 100%;
-	font-family: "Shrikhand";	
+	font-family: "Shrikhand";
+  text-align: center;	
 	}
 
 	/*---------- Form mobile ----------*/
 form {
-	text-align: center;
 	margin: auto;
 	padding: 20px 0 20px 0;
-	width: 100%;
 	box-shadow: inset 0 8px 8px -3px var(--dark-grey-shadow);
+  width: 100%;
 	background-color: var(--grey-shadow);	
+  text-align: center;
 }
 
 .searchbar {
-	text-align: center;
 	border: none;
 	background-color: var(--grey-shadow);
+  text-align: center;
 }
 
 .searchbar:focus {
@@ -48,8 +48,8 @@ form {
 
 .searchbar::placeholder {
   position: relative;
-	color: rgb(0, 0, 0);
 	opacity: 1;	
+  color: rgb(0, 0, 0);
 }
 
 /*---------- Main ----------*/
@@ -59,8 +59,8 @@ form {
 	flex-direction: column;
 	align-items: center;
 	margin-bottom: 50px;
+  padding: 30px 0 50px 0;
 	background-color: var(--grey-background);
-	padding: 30px 0 50px 0;
 }
 
 .welcom_section h2{
@@ -72,8 +72,8 @@ form {
 
 .welcom_section p {
 	margin: 0;
-  width: 90%;
   padding-bottom: 25px;
+  width: 90%;
 	text-align: center;
 }
 
@@ -114,20 +114,20 @@ form {
 	margin-bottom: 25px;
 	border-radius: 20px;
 	padding: 8px 0 8px 0;
-	box-shadow:0 5px 5px 5px var(--grey-shadow);
-	width: 85%;
-	background-color: var(--grey-background);
+  width: 85%;
   cursor: pointer;
+	box-shadow:0 5px 5px 5px var(--grey-shadow);
+	background-color: var(--grey-background);
 }
 
 .working_number {
+  position: absolute;
+	left: -9px;
 	border-radius: 100%;
 	padding: 2px 6px;
 	font-size: 12px;
 	background-color: var(--primary);
 	color: #ffffff;
-	position: absolute;
-	left: -9px;
 }
 
 .working_list .fa-solid {
@@ -175,8 +175,8 @@ font-weight: 500;
 .cards {                  /*--- Cards des quatres restaurant ---*/
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   margin: 20px;
   border-radius: 30px;
   height: 300px;
@@ -215,16 +215,16 @@ label {
   right: 15px; top: 15px;
   padding: 5px 10px;
   border-radius: 2px;
+  font-weight: 600;
   background-color: var(--grey-shadow);
   color: #868484;
-  font-weight: 600;
 }
 
 figure i {
-  cursor: pointer;
   position: absolute;
   right: 30px; bottom: 30px;
-  font-size: 35px; 
+  font-size: 35px;
+  cursor: pointer; 
 }
 
 .full-heart {
@@ -235,13 +235,12 @@ figure i {
   font-size: 35px;
   font-weight: bolder;
   transform: scale(1);
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
 }
 
 .full-heart:hover {
   opacity: 1;
 }
-
 
 /*---------- Footer ----------*/
 footer {
@@ -291,10 +290,10 @@ footer li {
 }
 
 .header_menu p{
-  text-align: center;
   font-weight: bold;
   font-family: "Shrikhand";
   font-size: 30px;
+  text-align: center;
 }
 
 .header_menu a {
@@ -318,11 +317,11 @@ footer li {
 .article_menu {
   display: flex;
   flex-direction: column;
-  background-color: var(--grey-background);
-  border-radius: 80px 80px 0 0;
   position: relative;
+  border-radius: 80px 80px 0 0;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
+  background-color: var(--grey-background);
 }
 
 .article_menu h1 {
@@ -341,14 +340,15 @@ footer li {
 }
 
 .heart-full-menu {
-  color: transparent;
+  transform: scale(1);
+  transition: all 500ms ease;
+  font-size: 35px;
+  font-weight: bolder;
   background-image: linear-gradient(var(--primary), var(--secondary));
   background-clip: text;
   opacity: 0;
-  font-size: 35px;
-  font-weight: bolder;
-  transform: scale(1);
-  transition: all 500ms ease;
+  color: transparent;
+  cursor: pointer;
 }
 
 .heart-full-menu:hover {
@@ -361,16 +361,16 @@ footer li {
 
 .article_menu h2 {
   padding-left: 20px;
-  text-transform: uppercase;
   font-weight: normal;
+  text-transform: uppercase;
 }
 
 .article_menu h2::after {
-  content: ".";
   display: block;
+  content: ".";
+  border-bottom: 3px solid var(--tertiary);
   padding-top: 5px;
   width: 45px;
-  border-bottom: 3px solid var(--tertiary);
   font-size: 0;
 }
 
@@ -383,42 +383,92 @@ footer li {
   list-style-type: none;
 }
 
+/*----- Animations pour les menus -----*/
+@keyframes opacity_menu {
+  0% {
+            opacity: 0;
+  }
+  100% {
+            opacity: 1;
+  }
+}
+
 .article_menu li {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 15px;
-  padding: 12px 0 15px 12px;
-  width: 90%;
   border-radius: 18px;
   box-shadow: 5px 5px 3px var(--dark-grey-shadow);
+  padding: 12px 0 15px 12px;
+  width: 90%;
+  animation: opacity_menu 1s ease-in-out;
+  overflow: hidden;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .text_menu {
-  width: 100%;
+  width: 68%;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .article_menu h3 {
   margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
   padding-bottom: 10px; 
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .article_menu p {
+  margin: 0 10px 0 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0;
 }
 
 .article_menu b {
+  display: block;
   padding-right: 20px;
   font-weight: bold;
+}
+
+.check_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 0 18px 18px 0;
+  right: -82px;
+  top: 0px;
+  height: 100%;
+  width: 62px;
+  background-color: var(--tertiary);
+}
+
+.check_menu i {
+  font-size: 30px;
+  color: #fff;
+}
+.article_menu li:hover {
+  transform: scale(1.05);
+}
+.article_menu li:hover .check_menu {
+  transition: all 700ms ease;
+  transform: translate(-80px);
+}
+
+.article_menu li:hover i {
+  transition: all 700ms ease;
+  transform: rotate(1turn);
+}
+
+.article_menu li:hover b {
+  transition: all 700ms ease;
+  transform: translate(-50px);
 }
 
 .article_menu a {
@@ -445,9 +495,9 @@ footer li {
   }
 
   #restaurant h2 {
+    padding-bottom: 80px;
     font-size: 30px;
     text-align: center;
-    padding-bottom: 80px;
   }
 
   .cards {
@@ -456,10 +506,11 @@ footer li {
   }
 
   footer h2 {
-    text-align: center;
-    font-size: 25px;
     padding-bottom: 60px;
+    font-size: 25px;
+    text-align: center;
   }
+
   footer ul {
     display: flex;
     justify-content:space-around;
@@ -470,6 +521,7 @@ footer li {
     text-align: center;
   }
 }
+
 /*-- Responsive desktop --*/
 @media (min-width: 992px) {
 
@@ -482,9 +534,9 @@ footer li {
   .section_menu {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 0 auto 0 auto;
     padding-bottom: 30px;
-    width: 30%;
+    width: 33%;
   }
 
   .article_menu h1 {
@@ -498,10 +550,10 @@ footer li {
   
   .working_section h2 {
     margin: auto;
-    text-align: center;
     padding-bottom: 30px;
     font-size: 30px;
     width: 100%;
+    text-align: center;
   }
 
   .working_list {
