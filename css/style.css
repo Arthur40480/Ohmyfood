@@ -122,10 +122,10 @@ form {
 
 .working_number {
   position: absolute;
-	left: -9px;
+	left: -11px;
 	border-radius: 100%;
-	padding: 2px 6px;
-	font-size: 12px;
+	padding: 3px 8px;
+	font-size: 18px;
 	background-color: var(--primary);
 	color: #ffffff;
 }
@@ -228,14 +228,15 @@ figure i {
 }
 
 .full-heart {
+  background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   background-image: linear-gradient(var(--primary), var(--secondary));
-  background-clip: text;
   opacity: 0;
   font-size: 35px;
   font-weight: bolder;
   transform: scale(1);
-  transition: all 500ms ease;
+  transition: all 1s ease;
 }
 
 .full-heart:hover {
@@ -341,11 +342,12 @@ footer li {
 
 .heart-full-menu {
   transform: scale(1);
-  transition: all 500ms ease;
+  transition: all 1s ease;
   font-size: 35px;
   font-weight: bolder;
   background-image: linear-gradient(var(--primary), var(--secondary));
   background-clip: text;
+  -webkit-background-clip: text;
   opacity: 0;
   color: transparent;
   cursor: pointer;
@@ -384,13 +386,27 @@ footer li {
 }
 
 /*----- Animations pour les menus -----*/
-@keyframes opacity_menu {
+@keyframes progressive {
   0% {
-            opacity: 0;
+    transform: translateY(20px);
+    opacity: 0;
   }
   100% {
-            opacity: 1;
+    transform: translateY(0px);
+    opacity: 1;
   }
+}
+
+.first_list_menu {
+  animation: progressive 1s ease-in-out both;
+}
+
+.second_list_menu {
+  animation: progressive 1s 0.5s ease-in-out both;
+}
+
+.third_list_menu {
+  animation: progressive 1s 1s ease-in-out both;
 }
 
 .article_menu li {
@@ -403,7 +419,6 @@ footer li {
   box-shadow: 5px 5px 3px var(--dark-grey-shadow);
   padding: 12px 0 15px 12px;
   width: 90%;
-  animation: opacity_menu 1s ease-in-out;
   overflow: hidden;
   background-color: #ffffff;
   cursor: pointer;
