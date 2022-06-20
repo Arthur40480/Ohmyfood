@@ -1,8 +1,8 @@
 /*---------- Polices ----------*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap');
 
-/*---------- Variables ( Couleurs ) ----------*/
-:root {                               /*--- Root même comportement que html mais plus fort ---*/
+/*---------- Variables ----------*/
+:root {                               
   --primary: #9356DC;
   --secondary: #FF79DA;
   --tertiary: #99E2D0;
@@ -12,12 +12,69 @@
   --dark-grey-shadow: #c6c6c6;
   --blue-working: #deebff;
 }
-@keyframes scroll {
+
+/*---------- Keyframes ----------*/
+@keyframes spinner-off { /*-- Animation du loading spinner --*/
+  0% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll { /*-- Animation pour pas scroll lors du loading spinner --*/
   0% {
     overflow-y: hidden;
   }
   100% {
     overflow-y: auto;
+  }
+}
+
+@keyframes rotate_needle { /*-- Animation horloge --*/
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flash { /*-- Animation titre --*/
+  0% {
+      color :#99E2D0;
+      text-shadow: 0 0 7px var(--tertiary);
+  }
+  33% {
+      color :#FF79DA;
+      text-shadow: 0 0 7px var(--secondary);
+  }
+  66% {
+      color :#9356DC;
+      text-shadow: 0 0 7px var(--primary);
+  }
+  100% {
+      color :#99E2D0;
+      text-shadow: 0 0 7px var(--tertiary);
+  }
+}
+
+@keyframes bouncer { /*-- Animation boules --*/
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-150px);}
+}
+
+@keyframes progressive { /*-- Animation menu --*/
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -29,50 +86,6 @@ body {
 }
 
 /*---------- Loading spinner ----------*/
-@keyframes rotate_needle {
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-    transform: rotate(360deg);
-  }
-
-}
-@keyframes flash {
-  0% {
-      color :#99E2D0;
-      text-shadow: 0 0 7px #99E2D0;
-  }
-  33% {
-      color :#FF79DA;
-      text-shadow: 0 0 7px #FF79DA;
-  }
-  66% {
-      color :#9356DC;
-      text-shadow: 0 0 7px #9356DC;
-  }
-  100% {
-      color :#99E2D0;
-      text-shadow: 0 0 7px #99E2D0;
-  }
-}
-
-@keyframes bouncer {
-  from { transform: : translateY(0);}
-  to { transform: translateY(-150px);}
-}
-
-@keyframes end-loader {
-  0% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-}
-
 .spinner {
   position: fixed;
   display: flex;
@@ -83,26 +96,26 @@ body {
   height: 100%;
   width: 100%;
   background-color: #ffffff;
-  animation: end-loader 1s 3s ease forwards;
+  animation: spinner-off 1s 3s ease forwards;
 }
 
 .clock {
   position: relative;
-  height: 120px;
-  width: 120px;
-  background: linear-gradient(var(--primary), var(--secondary));
+  margin-bottom: 50px;
   border: 6px solid var(--tertiary);
   border-radius: 50%;
-  margin-bottom: 50px;
+  height: 120px;
+  width: 120px;
+  background: linear-gradient(var(--primary), var(--secondary)); 
 }
 
 .center {
   position: absolute;
   top: 56px;
   right: 55px;
+  border-radius: 50%;
   height: 11px;
   width: 11px;
-  border-radius: 50%;
   background-color: #ffffff;
 }
 
@@ -122,9 +135,9 @@ body {
   position: absolute;
   top: 58px;
   right: 21px;
+  border-radius: 30px;
   width: 40px;
   height: 5px;
-  border-radius: 30px;
   background-color: #ffffff;
   animation: rotate_needle 15s infinite linear;
   transform-origin: left;
@@ -135,10 +148,10 @@ body {
 }
 
 .lettre {
-  color: #99E2D0;
   font-size: 80px;
-  letter-spacing: 10px;
   font-family: "Shrikhand";
+  letter-spacing: 10px;
+  color: #99E2D0;
   animation: flash 1.2s linear infinite;
 }
 
@@ -176,10 +189,10 @@ body {
 
 .bouncer div {
   margin: 3px;
+  border-radius: 50%;
   width: 30px;
   height: 30px;
   background-color: var(--primary);
-  border-radius: 50%;
   animation: bouncer 0.5s cubic-bezier(.19, .57, .3, .98) infinite alternate;
 }
 
@@ -198,19 +211,19 @@ body {
   opacity: 0.4;
 }
 
-	/*---------- Header mobile ----------*/
+/*---------- Header mobile ----------*/
 header h1 {
 	width: 100%;
 	font-family: "Shrikhand";
   text-align: center;	
 	}
 
-	/*---------- Form mobile ----------*/
+/*---------- Form mobile ----------*/
 form {
 	margin: auto;
 	padding: 20px 0 20px 0;
-	box-shadow: inset 0 8px 8px -3px var(--dark-grey-shadow);
   width: 100%;
+	box-shadow: inset 0 8px 8px -3px var(--dark-grey-shadow);
 	background-color: var(--grey-shadow);	
   text-align: center;
 }
@@ -233,7 +246,7 @@ form {
 
 /*---------- Main ----------*/
 /*---------- Welcom section ----------*/
-.welcom_section {
+.welcom_header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -242,21 +255,21 @@ form {
 	background-color: var(--grey-background);
 }
 
-.welcom_section h2{
+.welcom_header h2{
 	margin: 0;
   padding-bottom: 10px;
   width: 90%;
 	text-align: center;
 }
 
-.welcom_section p {
+.welcom_header p {
 	margin: 0;
   padding-bottom: 25px;
   width: 90%;
 	text-align: center;
 }
 
-.welcom_section a {
+.welcom_header a {
 	border: none;
 	border-radius: 30px;
 	padding: 18px 30px 18px 30px;
@@ -266,7 +279,7 @@ form {
   box-shadow: 0 5px 5px 5px var(--grey-shadow);
 }
 
-.welcom_section a:hover {
+.welcom_header a:hover {
   opacity: 0.7;
 }
 
@@ -274,6 +287,7 @@ form {
 .working_section {
   margin-bottom: 70px;
 }
+
 .working_section h2 {
 	margin: auto;
   padding-bottom: 10px;
@@ -285,10 +299,10 @@ form {
 }
 
 .working_list li {
+  position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	position: relative;
 	margin: auto;
 	margin-bottom: 25px;
 	border-radius: 20px;
@@ -334,7 +348,7 @@ font-weight: 500;
 }
 
 /*---------- Article restaurant ----------*/
-#restaurant {
+main article {
   display: flex;
   flex-direction: column;
   padding: 50px 0 60px 0;
@@ -342,23 +356,23 @@ font-weight: 500;
   background-color: var(--grey-background);
 }
 
-#restaurant h2 {
+.restaurant_title {
   margin: auto;
   width: 90%;
 }
 
-#restaurant a {
+main a {
   text-decoration: none;
 }
 
 .cards {                  /*--- Cards des quatres restaurant ---*/
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
   margin: 20px;
   border-radius: 30px;
   height: 300px;
+  overflow: hidden;
   box-shadow:0 5px 5px 5px var(--grey-shadow);
   background-color: #ffffff;
 }
@@ -369,10 +383,10 @@ font-weight: 500;
 }
 
 .cards img {
-  object-fit: cover;
-  overflow: hidden;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .cards h3 {
@@ -385,35 +399,35 @@ font-weight: 500;
   color: #000000;
 }
 
-label {
-  cursor: pointer;
-}
 
 .new {                   /*--- Etiquette "Nouveau" ---*/
   position: absolute;
-  right: 15px; top: 15px;
-  padding: 5px 10px;
+  right: 15px; 
+  top: 15px;
   border-radius: 2px;
+  padding: 5px 10px;
   font-weight: 600;
   background-color: var(--grey-shadow);
   color: #868484;
+  cursor: pointer;
 }
 
 figure i {
   position: absolute;
-  right: 30px; bottom: 30px;
+  right: 30px; 
+  bottom: 30px;
   font-size: 35px;
   cursor: pointer; 
 }
 
 .full-heart {
+  font-size: 35px;
+  font-weight: bolder;
+  opacity: 0;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   background-image: linear-gradient(var(--primary), var(--secondary));
-  opacity: 0;
-  font-size: 35px;
-  font-weight: bolder;
   transform: scale(1);
   transition: all 1s ease;
 }
@@ -465,7 +479,8 @@ footer li {
 
 .header_menu i {
   position: absolute;
-  top: 10px; left: 20px;
+  top: 10px; 
+  left: 20px;
   font-size: 25px;
 }
 
@@ -483,10 +498,10 @@ footer li {
 
 /*------- Main -> Header -> Photo d'illustration -------*/
 .img_menu {
-  object-fit: cover;
   width: 100%;
   max-height: 500px;
   min-height: 360px;
+  object-fit: cover;
 }
 
 .main_menu header {
@@ -495,9 +510,9 @@ footer li {
 
 /*---------- Article ----------*/
 .article_menu {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   border-radius: 80px 80px 0 0;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
@@ -509,7 +524,7 @@ footer li {
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0 20px;
   font-family: 'Shrikhand';
 }
 
@@ -520,10 +535,10 @@ footer li {
 }
 
 .heart-full-menu {
-  transform: scale(1);
-  transition: all 1s ease;
   font-size: 35px;
   font-weight: bolder;
+  transform: scale(1);
+  transition: all 1s ease;
   background-image: linear-gradient(var(--primary), var(--secondary));
   background-clip: text;
   -webkit-background-clip: text;
@@ -548,11 +563,11 @@ footer li {
 
 .article_menu h2::after {
   display: block;
-  content: ".";
   border-bottom: 3px solid var(--tertiary);
   padding-top: 5px;
   width: 45px;
   font-size: 0;
+  content: ".";
 }
 
 .article_menu ul {
@@ -562,18 +577,6 @@ footer li {
   margin-bottom: 30px;
   padding: 0;
   list-style-type: none;
-}
-
-/*----- Animations pour les menus -----*/
-@keyframes progressive {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
 }
 
 .first_list_menu {
@@ -595,9 +598,9 @@ footer li {
   align-items: flex-end;
   margin-bottom: 15px;
   border-radius: 18px;
-  box-shadow: 5px 5px 3px var(--dark-grey-shadow);
   padding: 12px 0 15px 12px;
   width: 90%;
+  box-shadow: 5px 5px 3px var(--dark-grey-shadow);
   overflow: hidden;
   background-color: #ffffff;
   cursor: pointer;
@@ -631,13 +634,13 @@ footer li {
 }
 
 .check_menu {
+  position: absolute;
+  right: -82px;
+  top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   border-radius: 0 18px 18px 0;
-  right: -82px;
-  top: 0px;
   height: 100%;
   width: 62px;
   background-color: var(--tertiary);
@@ -647,9 +650,11 @@ footer li {
   font-size: 30px;
   color: #fff;
 }
+
 .article_menu li:hover {
   transform: scale(1.05);
 }
+
 .article_menu li:hover .check_menu {
   transition: all 700ms ease;
   transform: translate(-80px);
@@ -681,14 +686,15 @@ footer li {
   opacity: 0.7;
 }
 
+/*-- Responsive tablet --*/
 @media (min-width: 768px) {
-  #restaurant {
+  main article {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  #restaurant h2 {
+  .restaurant_title {
     padding-bottom: 80px;
     font-size: 30px;
     text-align: center;
@@ -707,7 +713,7 @@ footer li {
 
   footer ul {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
   }
 
   footer li {
