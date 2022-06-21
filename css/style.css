@@ -11,6 +11,8 @@
   --grey-shadow: #e7e7e7;
   --dark-grey-shadow: #c6c6c6;
   --blue-working: #deebff;
+  --grey-icon: #808080;
+  --green-new: #008766;
 }
 
 /*---------- Keyframes ----------*/
@@ -27,7 +29,7 @@
 
 @keyframes scroll { /*-- Animation pour pas scroll lors du loading spinner --*/
   0% {
-    overflow-y: hidden;
+    overflow-y: hidden;  
   }
   100% {
     overflow-y: auto;
@@ -78,22 +80,39 @@
   }
 }
 
+@keyframes none {
+  0% {
+    display: none;
+  }
+
+  100% {
+    display: block;
+  }
+}
+
 /*---------- Body ----------*/
 body {
+  margin: 0;
+  padding: 0;
 	box-sizing: border-box;
 	font-family: "Roboto";
+}
+
+.welcom_body {
   animation: scroll 6s ease-in-out;
 }
 
 /*---------- Loading spinner ----------*/
 .spinner {
+  box-sizing:content-box;
   position: fixed;
+  top: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: #ffffff;
   animation: spinner-off 1s 3s ease forwards;
@@ -148,10 +167,10 @@ body {
 }
 
 .lettre {
-  font-size: 80px;
+  font-size: 45px;
   font-family: "Shrikhand";
-  letter-spacing: 10px;
-  color: #99E2D0;
+  letter-spacing: 5px;
+  color: var(--tertiary);
   animation: flash 1.2s linear infinite;
 }
 
@@ -326,7 +345,8 @@ form {
 .working_list .fa-solid {
 	margin: 0 20px 0 30px;
 	text-decoration: none;
-	color: #808080
+	color: var(--grey-icon);
+  font-size: 20px;
 }
 
 .working_list p {
@@ -407,8 +427,8 @@ main a {
   border-radius: 2px;
   padding: 5px 10px;
   font-weight: 600;
-  background-color: var(--grey-shadow);
-  color: #868484;
+  background-color: var(--tertiary);
+  color: var(--green-new);
   cursor: pointer;
 }
 
@@ -524,13 +544,14 @@ footer li {
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 20px 20px 0 20px;
+  margin-right: 50px;
+  padding: 20px;
   font-family: 'Shrikhand';
 }
 
 .heart-menu {
   position: absolute;
-  right: 50px;
+  right: 20px;
   font-size: 35px;
 }
 
@@ -688,6 +709,12 @@ footer li {
 
 /*-- Responsive tablet --*/
 @media (min-width: 768px) {
+
+  .lettre {
+    font-size: 80px;
+    letter-spacing: 10px;
+  }
+
   main article {
     display: flex;
     flex-direction: row;
