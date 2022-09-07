@@ -2,6 +2,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 
 # Ohmyfood
+Projet n°3 de la formation "Développeur Web" d'Openclassrooms. Dynamisez une page web avec des animations CSS.
 
 Project 3 Openclassrooms.
 Creation of a 100% mobile catering site with CSS animations.
